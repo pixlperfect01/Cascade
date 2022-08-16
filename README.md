@@ -37,10 +37,14 @@ fn int main(string[] args){
 ```
 What's new in this section is the `using` keyword, and the `read` object! What `using` does is include code from another file into the current one! The `read` object is used for getting text input from the user!
 
-Next topics: loops, string parsing, and if statements!
+Next topics: loops, strings, and macros!
 ```cas
 using math as m;
 using io as *;
+
+macro void err(string text){
+	print.ln("Error parsing math equation!", Format.Colors.Red);
+}
 
 fn int main(string[] args){
 	while(true){
@@ -52,10 +56,10 @@ fn int main(string[] args){
 			double output = m.fromString(userInput);
 			print.ln(output.toString());
 		} catch (m.MathError.Parse as e) {  
-			print.ln("Error parsing math equation!", Format.Colors.Red);
-			print.err(e.where);
+			err("Error parsing math equation!");
+			err(e.where);
 		} catch(* as e) {
-			print.ln("Unexpected error occoured!", Format.Colors.Red);
+			err("Unexpected error occoured!");
 			throw e;
 		}
 	}
