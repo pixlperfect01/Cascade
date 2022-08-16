@@ -49,7 +49,7 @@ macro void err(string text){
 fn int main(string[] args){
 	while(true){
 		string userInput = read.ln("> ");
-		if(userInput.isAny("exit", "quit", "break"){
+		if(userInput.isAny("exit", "quit", "break")){
 			break;
 		}
 		try{
